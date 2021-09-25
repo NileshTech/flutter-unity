@@ -1298,13 +1298,13 @@ const MethodInfo* il2cpp::vm::GlobalMetadata::GetGenericInstanceMethod(const Met
 const Il2CppType* il2cpp::vm::GlobalMetadata::GetTypeFromRgctxDefinition(const Il2CppRGCTXDefinition* rgctxDef)
 {
     IL2CPP_ASSERT(rgctxDef->type == IL2CPP_RGCTX_DATA_TYPE || rgctxDef->type == IL2CPP_RGCTX_DATA_CLASS);
-    return GetIl2CppTypeFromIndex(rgctxDef->data.__typeIndex);
+    return GetIl2CppTypeFromIndex(rgctxDef->data->__typeIndex);
 }
 
 const Il2CppGenericMethod* il2cpp::vm::GlobalMetadata::GetGenericMethodFromRgctxDefinition(const Il2CppRGCTXDefinition* rgctxDef)
 {
     IL2CPP_ASSERT(rgctxDef->type == IL2CPP_RGCTX_DATA_METHOD);
-    return GetGenericMethodFromIndex(rgctxDef->data.__methodIndex);
+    return GetGenericMethodFromIndex(rgctxDef->data->__methodIndex);
 }
 
 enum PackingSize
@@ -1381,6 +1381,7 @@ static Il2CppClass* FromTypeDefinition(TypeDefinitionIndex index)
     typeInfo->byval_arg = *il2cpp::vm::GlobalMetadata::GetIl2CppTypeFromIndex(typeDefinition->byvalTypeIndex);
     typeInfo->this_arg = typeInfo->byval_arg;
     typeInfo->this_arg.byref = true;
+    typeInfo->this_arg.valuetype = 0;
     typeInfo->typeMetadataHandle = reinterpret_cast<const Il2CppMetadataTypeHandle>(typeDefinition);
     typeInfo->genericContainerHandle = GetGenericContainerFromIndex(typeDefinition->genericContainerIndex);
     typeInfo->instance_size = typeDefinitionSizes->instance_size;
@@ -1390,7 +1391,6 @@ static Il2CppClass* FromTypeDefinition(TypeDefinitionIndex index)
     typeInfo->thread_static_fields_size = typeDefinitionSizes->thread_static_fields_size;
     typeInfo->thread_static_fields_offset = -1;
     typeInfo->flags = typeDefinition->flags;
-    typeInfo->valuetype = (typeDefinition->bitfield >> (kBitIsValueType - 1)) & 0x1;
     typeInfo->enumtype = (typeDefinition->bitfield >> (kBitIsEnum - 1)) & 0x1;
     typeInfo->is_generic = typeDefinition->genericContainerIndex != kGenericContainerIndexInvalid;     // generic if we have a generic container
     typeInfo->has_finalize = (typeDefinition->bitfield >> (kBitHasFinalizer - 1)) & 0x1;
@@ -1512,13 +1512,12 @@ Il2CppClass* il2cpp::vm::GlobalMetadata::GetTypeInfoFromTypeIndex(TypeIndex inde
         return s_TypeInfoTable[index];
 
     const Il2CppType* type = s_Il2CppMetadataRegistration->types[index];
+
     Il2CppClass *klass = Class::FromIl2CppType(type, throwOnError);
     if (klass != NULL)
     {
-        ClassInlines::InitFromCodegen(klass);
-        s_TypeInfoTable[index] = klass;
+        s_TypeInfoTable[index] = ClassInlines::InitFromCodegenSlow(klass, throwOnError);
     }
-
     return s_TypeInfoTable[index];
 }
 

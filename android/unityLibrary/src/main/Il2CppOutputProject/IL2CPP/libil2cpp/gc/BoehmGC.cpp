@@ -64,7 +64,7 @@ GC_ms_entry* GC_gcj_vector_proc(GC_word* addr, GC_ms_entry* mark_stack_ptr,
     GC_descr element_desc = (GC_descr)element_type->gc_desc;
 
     IL2CPP_ASSERT((element_desc & GC_DS_TAGS) == GC_DS_BITMAP);
-    IL2CPP_ASSERT(element_type->valuetype);
+    IL2CPP_ASSERT(element_type->byval_arg.valuetype);
 
     int words_per_element = array_type->element_size / BYTES_PER_WORD;
     GC_word* actual_start = (GC_word*)a->vector;

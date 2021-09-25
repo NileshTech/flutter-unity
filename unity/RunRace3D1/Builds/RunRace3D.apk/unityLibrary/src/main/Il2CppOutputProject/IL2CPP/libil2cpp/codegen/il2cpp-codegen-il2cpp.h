@@ -112,6 +112,7 @@ NORETURN void il2cpp_codegen_raise_exception(il2cpp_hresult_t hresult, bool defa
 void il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found(const RuntimeMethod* method);
 
 void il2cpp_codegen_raise_execution_engine_exception(const RuntimeMethod* method);
+void il2cpp_codegen_raise_execution_engine_exception_missing_virtual(const RuntimeMethod* method);
 
 NORETURN void il2cpp_codegen_raise_out_of_memory_exception();
 
@@ -272,7 +273,7 @@ int32_t il2cpp_codgen_class_get_instance_size(RuntimeClass* klass);
 
 inline uint32_t il2cpp_codegen_sizeof(RuntimeClass* klass)
 {
-    if (!klass->valuetype)
+    if (!klass->byval_arg.valuetype)
     {
         return sizeof(void*);
     }
@@ -354,8 +355,7 @@ IL2CPP_FORCE_INLINE void il2cpp_codegen_get_generic_interface_invoke_data(const 
 
 inline RuntimeClass* InitializedTypeInfo(RuntimeClass* klass)
 {
-    il2cpp::vm::ClassInlines::InitFromCodegen(klass);
-    return klass;
+    return il2cpp::vm::ClassInlines::InitFromCodegen(klass);
 }
 
 RuntimeClass* il2cpp_codegen_class_from_type_internal(const RuntimeType* type);
@@ -392,6 +392,7 @@ inline void ArrayGetGenericValueImpl(RuntimeArray* thisPtr, int32_t pos, void* v
 inline void ArraySetGenericValueImpl(RuntimeArray * thisPtr, int32_t pos, void* value)
 {
     memcpy(((uint8_t*)thisPtr) + sizeof(RuntimeArray) + pos * thisPtr->klass->element_size, value, thisPtr->klass->element_size);
+    Il2CppCodeGenWriteBarrier((void**)(((uint8_t*)thisPtr) + sizeof(RuntimeArray) + pos * thisPtr->klass->element_size), value);
 }
 
 RuntimeArray* SZArrayNew(RuntimeClass* arrayType, uint32_t length);
@@ -756,14 +757,6 @@ Il2CppAsyncResult* il2cpp_codegen_delegate_begin_invoke(RuntimeDelegate* delegat
 
 RuntimeObject* il2cpp_codegen_delegate_end_invoke(Il2CppAsyncResult* asyncResult, void **out_args);
 
-#if !IL2CPP_TINY
-inline bool il2cpp_codegen_delegate_has_invoker(Il2CppDelegate* delegate)
-{
-    return delegate->invoke_impl != NULL;
-}
-
-#endif
-
 inline const Il2CppGenericInst* il2cpp_codegen_get_generic_class_inst(RuntimeClass* genericClass)
 {
     IL2CPP_ASSERT(genericClass->generic_class);
@@ -880,5 +873,7 @@ void il2cpp_codegen_no_reverse_pinvoke_wrapper(const char* methodName, const cha
 bool il2cpp_codegen_type_is_interface(Type_t* t);
 bool il2cpp_codegen_type_is_abstract(Type_t* t);
 bool il2cpp_codegen_type_is_pointer(Type_t* t);
+
+NORETURN void il2cpp_codegen_raise_exception(const char* message);
 
 #endif

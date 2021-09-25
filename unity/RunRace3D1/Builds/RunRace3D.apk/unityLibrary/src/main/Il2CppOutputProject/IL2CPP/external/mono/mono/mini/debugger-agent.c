@@ -6989,7 +6989,9 @@ unity_debugger_agent_handle_exception(MonoException *exc)
 
 	mono_loader_lock();
 
-	MonoMethod *method = tls->il2cpp_context->frameCount > 0 ? tls->il2cpp_context->executionContexts[tls->il2cpp_context->frameCount - 1]->method : NULL;
+	MonoMethod *method = NULL;
+	if (tls)
+		method = tls->il2cpp_context->frameCount > 0 ? tls->il2cpp_context->executionContexts[tls->il2cpp_context->frameCount - 1]->method : NULL;
 
 	/* Treat exceptions which are caught in non-user code as unhandled */
 	for (i = 0; i < event_requests->len; ++i)
@@ -7860,7 +7862,7 @@ decode_value_internal (MonoType *t, int type, MonoDomain *domain, guint8 *addr, 
 				return ERR_INVALID_ARGUMENT;
 			}
 		} else if ((t->type == MONO_TYPE_GENERICINST) && 
-					t->data.generic_class->cached_class->valuetype &&
+					mono_class_is_valuetype(t->data.generic_class->cached_class) &&
 					t->data.generic_class->cached_class->enumtype){
 			err = decode_vtype (t, domain, addr, buf, &buf, limit);
 			if (err != ERR_NONE)

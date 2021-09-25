@@ -30,8 +30,6 @@ struct Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684;
 struct ControllerColliderHit_t483E787AA2D92263EC1F899BCF1FFC3F2B96D550;
 // UnityEngine.Object
 struct Object_tF2F3778131EFF286AF62B7B013A170F95A91571A;
-// UnityEngine.Rigidbody
-struct Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A;
 // System.String
 struct String_t;
 // UnityEngine.Transform
@@ -598,8 +596,8 @@ public:
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___m_Impulse_0;
 	// UnityEngine.Vector3 UnityEngine.Collision::m_RelativeVelocity
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___m_RelativeVelocity_1;
-	// UnityEngine.Rigidbody UnityEngine.Collision::m_Rigidbody
-	Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A * ___m_Rigidbody_2;
+	// UnityEngine.Component UnityEngine.Collision::m_Body
+	Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684 * ___m_Body_2;
 	// UnityEngine.Collider UnityEngine.Collision::m_Collider
 	Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * ___m_Collider_3;
 	// System.Int32 UnityEngine.Collision::m_ContactCount
@@ -626,13 +624,13 @@ public:
 		___m_RelativeVelocity_1 = value;
 	}
 
-	inline static int32_t get_offset_of_m_Rigidbody_2() { return static_cast<int32_t>(offsetof(Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0, ___m_Rigidbody_2)); }
-	inline Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A * get_m_Rigidbody_2() const { return ___m_Rigidbody_2; }
-	inline Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A ** get_address_of_m_Rigidbody_2() { return &___m_Rigidbody_2; }
-	inline void set_m_Rigidbody_2(Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A * value)
+	inline static int32_t get_offset_of_m_Body_2() { return static_cast<int32_t>(offsetof(Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0, ___m_Body_2)); }
+	inline Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684 * get_m_Body_2() const { return ___m_Body_2; }
+	inline Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684 ** get_address_of_m_Body_2() { return &___m_Body_2; }
+	inline void set_m_Body_2(Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684 * value)
 	{
-		___m_Rigidbody_2 = value;
-		Il2CppCodeGenWriteBarrier((void**)(&___m_Rigidbody_2), (void*)value);
+		___m_Body_2 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Body_2), (void*)value);
 	}
 
 	inline static int32_t get_offset_of_m_Collider_3() { return static_cast<int32_t>(offsetof(Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0, ___m_Collider_3)); }
@@ -676,7 +674,7 @@ struct Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_pinvoke
 {
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___m_Impulse_0;
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___m_RelativeVelocity_1;
-	Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A * ___m_Rigidbody_2;
+	Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684 * ___m_Body_2;
 	Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * ___m_Collider_3;
 	int32_t ___m_ContactCount_4;
 	ContactPoint_tC179732A8E0014F5EFF5977ED1ADF12CF14A9017 * ___m_ReusedContacts_5;
@@ -687,7 +685,7 @@ struct Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_com
 {
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___m_Impulse_0;
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___m_RelativeVelocity_1;
-	Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A * ___m_Rigidbody_2;
+	Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684 * ___m_Body_2;
 	Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * ___m_Collider_3;
 	int32_t ___m_ContactCount_4;
 	ContactPoint_tC179732A8E0014F5EFF5977ED1ADF12CF14A9017 * ___m_ReusedContacts_5;
@@ -1048,15 +1046,6 @@ public:
 };
 
 
-// UnityEngine.Rigidbody
-struct Rigidbody_t101F2E2F9F16E765A77429B2DE4527D2047A887A  : public Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684
-{
-public:
-
-public:
-};
-
-
 // UnityEngine.Transform
 struct Transform_tA8193BB29D4D2C7EC04918F3ED1816345186C3F1  : public Component_t62FBC8D2420DA4BE9037AFE430740F6B3EECA684
 {
@@ -1368,13 +1357,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t CharacterController_Move_Injected_m6A
 // Conversion methods for marshalling of: UnityEngine.Collision
 IL2CPP_EXTERN_C void Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshal_pinvoke(const Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0& unmarshaled, Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_pinvoke& marshaled)
 {
-	Exception_t* ___m_Rigidbody_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Rigidbody' of type 'Collision': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Rigidbody_2Exception, NULL);
+	Exception_t* ___m_Body_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Body' of type 'Collision': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Body_2Exception, NULL);
 }
 IL2CPP_EXTERN_C void Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshal_pinvoke_back(const Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_pinvoke& marshaled, Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0& unmarshaled)
 {
-	Exception_t* ___m_Rigidbody_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Rigidbody' of type 'Collision': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Rigidbody_2Exception, NULL);
+	Exception_t* ___m_Body_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Body' of type 'Collision': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Body_2Exception, NULL);
 }
 // Conversion method for clean up from marshalling of: UnityEngine.Collision
 IL2CPP_EXTERN_C void Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshal_pinvoke_cleanup(Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_pinvoke& marshaled)
@@ -1383,13 +1372,13 @@ IL2CPP_EXTERN_C void Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshal
 // Conversion methods for marshalling of: UnityEngine.Collision
 IL2CPP_EXTERN_C void Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshal_com(const Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0& unmarshaled, Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_com& marshaled)
 {
-	Exception_t* ___m_Rigidbody_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Rigidbody' of type 'Collision': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Rigidbody_2Exception, NULL);
+	Exception_t* ___m_Body_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Body' of type 'Collision': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Body_2Exception, NULL);
 }
 IL2CPP_EXTERN_C void Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshal_com_back(const Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_com& marshaled, Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0& unmarshaled)
 {
-	Exception_t* ___m_Rigidbody_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Rigidbody' of type 'Collision': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Rigidbody_2Exception, NULL);
+	Exception_t* ___m_Body_2Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_Body' of type 'Collision': Reference type field marshaling is not supported.");
+	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_Body_2Exception, NULL);
 }
 // Conversion method for clean up from marshalling of: UnityEngine.Collision
 IL2CPP_EXTERN_C void Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshal_com_cleanup(Collision_tDC11F9B3834FD25DEB8C7DD1C51B635D240BBBF0_marshaled_com& marshaled)
@@ -2444,8 +2433,9 @@ IL_0022:
 }
 IL2CPP_EXTERN_C  String_t* PhysicsScene_ToString_mBB6D0AC1E3E2EDC34CB4A7A34485B24B6271903F_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
 {
+	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted;
 	int32_t _offset = 1;
-	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
 	String_t* _returnValue;
 	_returnValue = PhysicsScene_ToString_mBB6D0AC1E3E2EDC34CB4A7A34485B24B6271903F(_thisAdjusted, method);
 	return _returnValue;
@@ -2468,8 +2458,9 @@ IL_000a:
 }
 IL2CPP_EXTERN_C  int32_t PhysicsScene_GetHashCode_m5344CC6CCCB1CA6EBB149775EE028089DD74B8A2_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
 {
+	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted;
 	int32_t _offset = 1;
-	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
 	int32_t _returnValue;
 	_returnValue = PhysicsScene_GetHashCode_m5344CC6CCCB1CA6EBB149775EE028089DD74B8A2(_thisAdjusted, method);
 	return _returnValue;
@@ -2520,8 +2511,9 @@ IL_002d:
 }
 IL2CPP_EXTERN_C  bool PhysicsScene_Equals_m2645ABB96C598F197F734EB712494795928CBCEC_AdjustorThunk (RuntimeObject * __this, RuntimeObject * ___other0, const RuntimeMethod* method)
 {
+	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted;
 	int32_t _offset = 1;
-	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
 	bool _returnValue;
 	_returnValue = PhysicsScene_Equals_m2645ABB96C598F197F734EB712494795928CBCEC(_thisAdjusted, ___other0, method);
 	return _returnValue;
@@ -2546,8 +2538,9 @@ IL_0012:
 }
 IL2CPP_EXTERN_C  bool PhysicsScene_Equals_m8C948B86D105177D519A3608816CDC698C8686B8_AdjustorThunk (RuntimeObject * __this, PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678  ___other0, const RuntimeMethod* method)
 {
+	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted;
 	int32_t _offset = 1;
-	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
 	bool _returnValue;
 	_returnValue = PhysicsScene_Equals_m8C948B86D105177D519A3608816CDC698C8686B8(_thisAdjusted, ___other0, method);
 	return _returnValue;
@@ -2608,8 +2601,9 @@ IL_0041:
 }
 IL2CPP_EXTERN_C  bool PhysicsScene_Raycast_m8C3E61EB7C3DB8AAC6FEB098D815062BEF821187_AdjustorThunk (RuntimeObject * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___origin0, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___direction1, float ___maxDistance2, int32_t ___layerMask3, int32_t ___queryTriggerInteraction4, const RuntimeMethod* method)
 {
+	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted;
 	int32_t _offset = 1;
-	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
 	bool _returnValue;
 	_returnValue = PhysicsScene_Raycast_m8C3E61EB7C3DB8AAC6FEB098D815062BEF821187(_thisAdjusted, ___origin0, ___direction1, ___maxDistance2, ___layerMask3, ___queryTriggerInteraction4, method);
 	return _returnValue;
@@ -2685,8 +2679,9 @@ IL_004a:
 }
 IL2CPP_EXTERN_C  bool PhysicsScene_Raycast_mFC0D59C4439EE9DA6E8AA5F6891915132D587208_AdjustorThunk (RuntimeObject * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___origin0, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___direction1, RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * ___hitInfo2, float ___maxDistance3, int32_t ___layerMask4, int32_t ___queryTriggerInteraction5, const RuntimeMethod* method)
 {
+	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted;
 	int32_t _offset = 1;
-	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
 	bool _returnValue;
 	_returnValue = PhysicsScene_Raycast_mFC0D59C4439EE9DA6E8AA5F6891915132D587208(_thisAdjusted, ___origin0, ___direction1, ___hitInfo2, ___maxDistance3, ___layerMask4, ___queryTriggerInteraction5, method);
 	return _returnValue;
@@ -2755,8 +2750,9 @@ IL_003f:
 }
 IL2CPP_EXTERN_C  int32_t PhysicsScene_Raycast_m95CAB68EB9165E3AB2A4D441F7DF9767AD4B7F73_AdjustorThunk (RuntimeObject * __this, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___origin0, Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  ___direction1, RaycastHitU5BU5D_t6778DB95346906446AAD3A1A36904F1846435A09* ___raycastHits2, float ___maxDistance3, int32_t ___layerMask4, int32_t ___queryTriggerInteraction5, const RuntimeMethod* method)
 {
+	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted;
 	int32_t _offset = 1;
-	PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 * _thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<PhysicsScene_tEDFCAA935450E8EBB7732353D9AA264A5F711678 *>(__this + _offset);
 	int32_t _returnValue;
 	_returnValue = PhysicsScene_Raycast_m95CAB68EB9165E3AB2A4D441F7DF9767AD4B7F73(_thisAdjusted, ___origin0, ___direction1, ___raycastHits2, ___maxDistance3, ___layerMask4, ___queryTriggerInteraction5, method);
 	return _returnValue;
@@ -2848,8 +2844,9 @@ IL_0014:
 }
 IL2CPP_EXTERN_C  Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * RaycastHit_get_collider_m13A3DE16FBC631E0A1F987E0B22CE70AF8AB539E_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
 {
+	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted;
 	int32_t _offset = 1;
-	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
 	Collider_t5E81E43C2ECA0209A7C4528E84A632712D192B02 * _returnValue;
 	_returnValue = RaycastHit_get_collider_m13A3DE16FBC631E0A1F987E0B22CE70AF8AB539E(_thisAdjusted, method);
 	return _returnValue;
@@ -2873,8 +2870,9 @@ IL_000a:
 }
 IL2CPP_EXTERN_C  Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  RaycastHit_get_point_m32F7282CBB2E13393A33BAD046BDA218E48DD21E_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
 {
+	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted;
 	int32_t _offset = 1;
-	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  _returnValue;
 	_returnValue = RaycastHit_get_point_m32F7282CBB2E13393A33BAD046BDA218E48DD21E(_thisAdjusted, method);
 	return _returnValue;
@@ -2898,8 +2896,9 @@ IL_000a:
 }
 IL2CPP_EXTERN_C  Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  RaycastHit_get_normal_m2C813B25BAECD87FD9E9CB294278B291F4CC6674_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
 {
+	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted;
 	int32_t _offset = 1;
-	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
 	Vector3_t65B972D6A585A0A5B63153CF1177A90D3C90D65E  _returnValue;
 	_returnValue = RaycastHit_get_normal_m2C813B25BAECD87FD9E9CB294278B291F4CC6674(_thisAdjusted, method);
 	return _returnValue;
@@ -2922,20 +2921,13 @@ IL_000a:
 }
 IL2CPP_EXTERN_C  float RaycastHit_get_distance_m85FCA98D7957C3BF1D449CA1B48C116CCD6226FA_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
 {
+	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted;
 	int32_t _offset = 1;
-	RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 * _thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
+	_thisAdjusted = reinterpret_cast<RaycastHit_t59E5AEC8FE13BFA2ACBB6FFBDB7585FFB7288F89 *>(__this + _offset);
 	float _returnValue;
 	_returnValue = RaycastHit_get_distance_m85FCA98D7957C3BF1D449CA1B48C116CCD6226FA(_thisAdjusted, method);
 	return _returnValue;
 }
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

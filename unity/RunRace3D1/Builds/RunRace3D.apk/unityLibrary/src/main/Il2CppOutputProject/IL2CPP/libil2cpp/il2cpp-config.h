@@ -129,7 +129,7 @@ typedef void (STDCALL *SynchronizationContextCallback)(intptr_t arg);
 #endif
 
 #if IL2CPP_TINY
-    #if IL2CPP_TINY_DEBUG_METADATA
+    #if IL2CPP_TINY_DEBUG_METADATA || IL2CPP_TINY_DEBUGGER
         #define IL2CPP_ENABLE_STACKTRACES 1
     #else
         #define IL2CPP_ENABLE_STACKTRACES 0
@@ -373,7 +373,7 @@ static const uint16_t kInvalidIl2CppMethodSlot = 65535;
 #define IL2CPP_VALIDATE_FIELD_LAYOUT 0
 
 #ifndef IL2CPP_USE_POSIX_COND_TIMEDWAIT_REL
-#define IL2CPP_USE_POSIX_COND_TIMEDWAIT_REL ( IL2CPP_TARGET_DARWIN || IL2CPP_TARGET_PSP2 || ( IL2CPP_TARGET_ANDROID && !IL2CPP_TARGET_ARM64 ) )
+#define IL2CPP_USE_POSIX_COND_TIMEDWAIT_REL ( IL2CPP_TARGET_DARWIN || IL2CPP_TARGET_PSP2 || ( IL2CPP_TARGET_ANDROID && !IL2CPP_TARGET_ARM64 && !__x86_64__ ) )
 #endif
 
 #if IL2CPP_MONO_DEBUGGER
@@ -503,7 +503,7 @@ static const Il2CppChar kIl2CppNewLine[] = { '\r', '\n', '\0' };
 static const Il2CppChar kIl2CppNewLine[] = { '\n', '\0' };
 #endif
 
-#define MAXIMUM_NESTED_GENERICS_EXCEPTION_MESSAGE "IL2CPP encountered a managed type which it cannot convert ahead-of-time. The type uses generic or array types which are nested beyond the maximum depth which can be converted."
+#define MAXIMUM_NESTED_GENERICS_EXCEPTION_MESSAGE "IL2CPP encountered a managed type which it cannot convert ahead-of-time. The type uses generic or array types which are nested beyond the maximum depth which can be converted.   Consider increasing the --maximum-recursive-generic-depth argument above %d"
 #if IL2CPP_COMPILER_MSVC
 #define IL2CPP_ATTRIBUTE_WEAK
 #else
